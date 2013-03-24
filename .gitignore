@@ -1,0 +1,15 @@
+/.classpath
+/.idea/
+/.idea_modules/
+/*.iml
+/.project
+/.settings/
+/lib_managed/
+/target/
+/submission/
+/bin/
+/out/
+/lib/
+/build/
+/.gradle/
+

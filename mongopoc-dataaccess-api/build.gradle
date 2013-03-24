@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':mongopoc-shared')
+    compile project(':mongopoc-domain')
+}

@@ -1,0 +1,32 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    configurations {
+        provided
+        testCompile.extendsFrom provided
+        compile.transitive = true
+    }
+
+    dependencies {
+        testCompile 'org.testng:testng:6.8'
+    }
+
+    group = 'com.ideologic.mongopoc'
+    version = '1.0'
+
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
+
+    task "create-dirs" << {
+        sourceSets*.java.srcDirs*.each { it.mkdirs() }
+        sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    }
+}
+

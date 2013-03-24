@@ -1,0 +1,1 @@
+include "mongopoc-shared", "mongopoc-domain", "mongopoc-dataaccess-api", "mongopoc-dataaccess-mongodb-driver", "mongopoc-dataaccess-jongo", "mongopoc-dataaccess-spring-data-mongodb"
