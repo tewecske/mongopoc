@@ -12,4 +12,10 @@
 /lib/
 /build/
 /.gradle/
+/mongopoc-shared/build/
+/mongopoc-dataaccess-api/build/
+/mongopoc-domain/build/
+/mongopoc-dataaccess-mongodb-driver/build/
+/mongopoc-dataaccess-jongo/build/
+/mongopoc-dataaccess-spring-data-mongodb/build/
 
