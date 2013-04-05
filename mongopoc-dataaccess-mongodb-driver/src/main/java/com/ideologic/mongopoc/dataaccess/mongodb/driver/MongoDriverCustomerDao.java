@@ -7,7 +7,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 
 /**
- * @author: tewe
+ * @author tewe
  */
 public class MongoDriverCustomerDao implements CustomerDao {
 
@@ -28,6 +28,11 @@ public class MongoDriverCustomerDao implements CustomerDao {
             throw new RuntimeException("Customer " + customer  + " create error "+lastError.getErrorMessage(), lastError.getException());
         }
 
+    }
+
+    @Override
+    public void update(Customer customer) {
+        // TODO
     }
 
     public void setCustomerCollection(final DBCollection customerCollection) {
