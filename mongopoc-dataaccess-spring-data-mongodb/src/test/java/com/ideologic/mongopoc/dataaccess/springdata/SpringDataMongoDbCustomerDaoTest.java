@@ -1,3 +1,5 @@
+package com.ideologic.mongopoc.dataaccess.springdata;
+
 import com.ideologic.mongopoc.domain.customer.Customer;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 /**
- * @author: tewe
+ * @author tewe
  */
 @Test
 @ContextConfiguration(classes=SpringDataConfiguration.class)
