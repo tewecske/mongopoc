@@ -2,6 +2,7 @@ package com.ideologic.mongopoc.dataaccess.mongodb.driver;
 
 import com.ideologic.mongopoc.domain.customer.Customer;
 import com.mongodb.*;
+import com.mongodb.util.JSON;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,7 @@ import java.net.UnknownHostException;
 import static org.testng.Assert.assertEquals;
 
 /**
- * @author: tewe
+ * @author tewe
  */
 @Test
 public class MongoDriverCustomerDaoTest {
@@ -38,11 +39,16 @@ public class MongoDriverCustomerDaoTest {
 
         mongoDriverCustomerDao.create(customer);
 
-        DBObject actual = customerCollection.find(
-                BasicDBObjectBuilder.start("name", "John Doe").append("email", "john@doe.com").get()).next();
-
+        DBObject actual = customerCollection.findOne(
+                BasicDBObjectBuilder.start("name", "John Doe").append("email", "john@doe.com").get());
         assertEquals(actual.get("name"), customer.getName());
         assertEquals(actual.get("email"), customer.getEmail());
+
+        DBObject dbObject = customerCollection.findOne((DBObject) JSON.parse("{'name':'John Doe', 'email':'john@doe.com'}"));
+        assertEquals(dbObject.get("name"), customer.getName());
+        assertEquals(dbObject.get("email"), customer.getEmail());
+
+
 
     }
 }
