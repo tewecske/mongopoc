@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mongod --dbpath /home/tewe/data/mongodb/mongopoc/dev --port 27770
+mongod --dbpath ~/work/databases/ideologic/mongopoc/dev --port 27770 --nojournal
