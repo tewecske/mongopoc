@@ -5,7 +5,7 @@ import com.ideologic.mongopoc.domain.customer.Customer;
 import org.jongo.MongoCollection;
 
 /**
- * @author: tewe
+ * @author tewe
  */
 public class JongoCustomerDao implements CustomerDao {
 
@@ -13,6 +13,11 @@ public class JongoCustomerDao implements CustomerDao {
 
     @Override
     public void create(final Customer customer) {
+        customerCollection.save(customer);
+    }
+
+    @Override
+    public void update(Customer customer) {
         customerCollection.save(customer);
     }
 
