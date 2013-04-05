@@ -1,6 +1,7 @@
 package com.ideologic.mongopoc.dataaccess.springdata;
 
 import com.ideologic.mongopoc.domain.customer.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -18,11 +19,11 @@ import static org.testng.Assert.assertEquals;
 @ContextConfiguration(classes=SpringDataConfiguration.class)
 public class SpringDataMongoDbCustomerDaoTest extends AbstractTestNGSpringContextTests {
 
+    @Autowired
     private MongoOperations mongoOperation;
 
     @BeforeClass
     public void beforeClass() throws Exception {
-        mongoOperation = (MongoOperations)applicationContext.getBean("mongoTemplate");
         mongoOperation.dropCollection("customers");
     }
 
