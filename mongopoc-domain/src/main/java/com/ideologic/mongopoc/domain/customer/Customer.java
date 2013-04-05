@@ -1,12 +1,14 @@
 package com.ideologic.mongopoc.domain.customer;
 
 /**
- * @author: tewe
+ * @author tewe
  */
 public class Customer {
 
     private String name;
     private String email;
+
+    private Address address;
 
     public String getName() {
         return name;
@@ -22,6 +24,14 @@ public class Customer {
 
     public void setEmail(final String email) {
         this.email = email;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
