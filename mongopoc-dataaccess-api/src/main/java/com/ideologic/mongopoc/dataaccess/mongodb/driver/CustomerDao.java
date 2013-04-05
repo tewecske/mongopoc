@@ -3,10 +3,11 @@ package com.ideologic.mongopoc.dataaccess.mongodb.driver;
 import com.ideologic.mongopoc.domain.customer.Customer;
 
 /**
- * @author: tewe
+ * @author tewe
  */
 public interface CustomerDao {
 
     void create(Customer customer);
 
+    void update(Customer customer);
 }
