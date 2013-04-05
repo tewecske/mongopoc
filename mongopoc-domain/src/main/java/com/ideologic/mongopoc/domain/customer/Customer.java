@@ -5,10 +5,19 @@ package com.ideologic.mongopoc.domain.customer;
  */
 public class Customer {
 
+    private Long customerNumber;
     private String name;
     private String email;
 
     private Address address;
+
+    public Long getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(Long customerNumber) {
+        this.customerNumber = customerNumber;
+    }
 
     public String getName() {
         return name;
@@ -36,6 +45,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return name + " (" + email + ')';
+        return "[" + customerNumber + "] " + name + " (" + email + ')';
     }
 }
