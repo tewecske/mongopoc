@@ -1,5 +1,6 @@
 package com.ideologic.mongopoc.dataaccess.springdata;
 
+import com.ideologic.mongopoc.configuration.MongopocConfiguration;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
@@ -15,13 +16,13 @@ public class SpringDataMongoConfiguration extends AbstractMongoConfiguration {
 
     @Override
     public String getDatabaseName() {
-        return "mongopoc";
+        return MongopocConfiguration.MONGOPOC_DATABASE_NAME;
     }
 
     @Override
     @Bean
     public Mongo mongo() throws Exception {
-        return new MongoClient("localhost", 27770);
+        return new MongoClient(MongopocConfiguration.MONGOPOC_HOST, MongopocConfiguration.MONGOPOC_PORT);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.ideologic.mongopoc.dataaccess.mongodb.driver;
 
+import com.ideologic.mongopoc.configuration.MongopocConfiguration;
 import com.ideologic.mongopoc.domain.customer.Customer;
 import com.mongodb.*;
 import com.mongodb.util.JSON;
@@ -22,8 +23,8 @@ public class MongoDriverCustomerDaoTest {
 
     @BeforeClass
     public void beforeClass() throws UnknownHostException {
-        MongoClient mongoClient = new MongoClient("localhost", 27770);
-        db = mongoClient.getDB("mongopoc");
+        MongoClient mongoClient = new MongoClient(MongopocConfiguration.MONGOPOC_HOST, MongopocConfiguration.MONGOPOC_PORT);
+        db = mongoClient.getDB(MongopocConfiguration.MONGOPOC_DATABASE_NAME);
         customerCollection = db.getCollection("customer");
         mongoDriverCustomerDao = new MongoDriverCustomerDao();
         mongoDriverCustomerDao.setCustomerCollection(customerCollection);

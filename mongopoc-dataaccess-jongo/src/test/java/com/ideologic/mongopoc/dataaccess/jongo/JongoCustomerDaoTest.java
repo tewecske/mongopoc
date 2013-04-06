@@ -2,6 +2,7 @@ package com.ideologic.mongopoc.dataaccess.jongo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ideologic.mongopoc.configuration.MongopocConfiguration;
 import com.ideologic.mongopoc.domain.customer.Customer;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
@@ -43,8 +44,8 @@ public class JongoCustomerDaoTest {
 
     @BeforeClass
     public void beforeClass() throws UnknownHostException {
-        MongoClient mongoClient = new MongoClient("localhost", 27770);
-        db = mongoClient.getDB("mongopoc");
+        MongoClient mongoClient = new MongoClient(MongopocConfiguration.MONGOPOC_HOST, MongopocConfiguration.MONGOPOC_PORT);
+        db = mongoClient.getDB(MongopocConfiguration.MONGOPOC_DATABASE_NAME);
 
         ObjectMapper objectMapper = new ObjectMapper(MongoBsonFactory.createFactory());
         objectMapper.addMixInAnnotations(Customer.class, MixIn.class);
@@ -53,7 +54,7 @@ public class JongoCustomerDaoTest {
                 .withObjectIdUpdater(new ReflectiveObjectIdUpdater(new CustomerIdFieldSelector()))
                 .build();
         Jongo jongo = new Jongo(db, mapper);
-        customerCollection = jongo.getCollection("customer");
+        customerCollection = jongo.getCollection(MongopocConfiguration.MONGOPOC_TEST_COLLECTION_NAME);
         jongoCustomerDao = new JongoCustomerDao();
         jongoCustomerDao.setCustomerCollection(customerCollection);
         customerCollection.drop();

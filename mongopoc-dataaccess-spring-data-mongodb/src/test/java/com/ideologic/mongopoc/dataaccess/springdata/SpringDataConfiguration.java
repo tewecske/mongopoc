@@ -1,5 +1,6 @@
 package com.ideologic.mongopoc.dataaccess.springdata;
 
+import com.ideologic.mongopoc.configuration.MongopocConfiguration;
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +16,7 @@ public class SpringDataConfiguration {
 
     @Bean
     public MongoDbFactory mongoDbFactory() throws Exception {
-        return new SimpleMongoDbFactory(new MongoClient("localhost", 27770), "mongopoc");
+        return new SimpleMongoDbFactory(new MongoClient(MongopocConfiguration.MONGOPOC_HOST, MongopocConfiguration.MONGOPOC_PORT), MongopocConfiguration.MONGOPOC_DATABASE_NAME);
     }
 
     @Bean

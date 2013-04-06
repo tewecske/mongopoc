@@ -24,6 +24,16 @@ subprojects {
         manifest.attributes provider: 'gradle'
     }
 
+    test {
+        useTestNG()
+    }
+
+    task testngTest(type: Test) {
+        useTestNG()
+    }
+
+    check.dependsOn testngTest
+
     task "create-dirs" << {
         sourceSets*.java.srcDirs*.each { it.mkdirs() }
         sourceSets*.resources.srcDirs*.each { it.mkdirs() }
