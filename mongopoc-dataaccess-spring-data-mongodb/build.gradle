@@ -2,5 +2,6 @@ dependencies {
     compile project(':mongopoc-dataaccess-api')
     compile 'org.springframework.data:spring-data-mongodb:1.2.0.RELEASE'
     compile 'org.springframework:spring-test:3.2.0.RELEASE'
+    compile 'org.mongodb:mongo-java-driver:2.11.0'
 }
 

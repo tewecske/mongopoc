@@ -1,5 +1,5 @@
 dependencies {
     compile project(':mongopoc-dataaccess-api')
     compile 'org.jongo:jongo:0.4'
-    compile 'org.mongodb:mongo-java-driver:2.10.1'
+    compile 'org.mongodb:mongo-java-driver:2.11.0'
 }
