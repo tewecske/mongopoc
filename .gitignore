@@ -18,4 +18,5 @@
 /mongopoc-dataaccess-mongodb-driver/build/
 /mongopoc-dataaccess-jongo/build/
 /mongopoc-dataaccess-spring-data-mongodb/build/
+/mongopoc-dataaccess-morphia/build/
 

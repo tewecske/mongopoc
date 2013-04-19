@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':mongopoc-dataaccess-api')
+    compile 'com.github.jmkgreen.morphia:morphia:1.2.3'
+}
